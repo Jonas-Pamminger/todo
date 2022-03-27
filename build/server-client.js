@@ -34,21 +34,17 @@ export class HttpClient {
             success: _ => success()
         });
     }
-    updateData(text, done /*, success: () => void*/) {
+    updateData(text, done) {
         const data = {
             text: text,
             done: done
         };
-        // $.post(this.todoGeneralUrl, data, _ => {
-        //     success();
-        // });
         $.ajax({
             url: this.todoGeneralUrl,
             data: JSON.stringify(data),
             type: 'PUT',
             contentType: 'application/json',
             processData: false,
-            //success: _ => success()
         });
     }
 }

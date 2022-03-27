@@ -30,21 +30,18 @@ export class HttpClient {
         });
     }
 
-    public updateData(text: string, done: boolean/*, success: () => void*/): void {
+   public updateData(text: string, done: boolean): void {
         const data = {
             text: text,
             done: done
         };
-// $.post(this.todoGeneralUrl, data, _ => {
-//     success();
-// });
         $.ajax({
             url: this.todoGeneralUrl,
             data: JSON.stringify(data),
             type: 'PUT',
             contentType: 'application/json',
             processData: false,
-            //success: _ => success()
+
         });
     }
 }
